@@ -1,0 +1,58 @@
+---
+title: "BUDA 530 Final— Spring 2022"
+author: "Brad Price, Ph.D."
+date: "2/21/2022"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Instructions
+
+This final is to be done in your groups.  Only one document is needed per group.  Some questions require code, and the analysis of data, some questions check the concepts that we have discussed in this course.  There are a total of 5 questions on this final.  Please submit your .Rmd and word/pdf document via e campus. The assignment is Due March 4 by 11:59 PM .  
+
+### Problem 1 (20 points)
+
+In your own words address the following questions about maximum likelihood estimation.  What is maximum likelihood estimation?  What is the procedure for finding the maximum likelihood estimates?  Is there a relationship between the ordinary least squares estimates and generalized linear models that is based on maximum likelihood estimation?  If so give insights on that relationship.
+
+
+### Problem 2 (20 points)
+
+Here are some  common problem occurring in industry right now.  Part of your education is to be able to analyze data, but also start to think about the type of analysis needed to answer the question. Most of your clients will never see what happens behind the scenes but they will be impacted by the results. As much as we would like it, most stakeholders don't know the analysis needed they just know the question they need an answer too.  Below I'm going to describe 2 scenarios.  Suggest the type of analysis/model you would use based on the methods you learned in this course.  Give justification for your selection.
+
+A company that offers lines of credit (think bank or credit cards) is interested in the risk associated with their customers.  There are many different ways to view this, but they plan to use this information to offer
+better rates, or make offers to new customers based on information they have on these customers.  The information available is income, employment history, home ownership, "some" credit history, and current credit liability for a credit report.  We have credit score, but are looking to supplement it with our own metric and recommendations.  We believe that using credit score only may be too restrictive to customers who will pay appropriately.  We are actively looking at the risk associated with these lines of credit.   For right now these loans are for a fixed credit limit.  
+
+**Scenario 1**  One stakeholder is interested in different levels of risk of default/non-payment.  They have provided information on 5 levels of risk, of every individual based on their opinion and would like you to create a model based on this.  The 5 levels of risk, are "extremely low risk", "low risk", "moderate risk", "high risk", and "extremely high risk".  They ask you to find relevant predictors for this metric and report a model they can use in an automated procedure to provide these recommendations on top of what they already have.  Recommend a statistical model that you can use and how you would evaluate this model relative to customer needs.  Are there issues with the method you've proposed?  How can you explain this to your client?
+
+**Scenario 2**  Another stakeholder is interested in only defaults.  Since credit is offered to those who the company deems appropriate to offer credit to there is a certain "filter" on who will default.  Basically defaults become a "rare" occurrence, but we still want to be able to predict.  The data the company provides shows a 15% default rate, which they deem acceptable, but they want to see if they can identify contributory factors to defaults.  Prediction at an individual level is done through another means.  They want you to develop a statistical model that can identify the number of defaults that can occur in a specific month.  They also suggest there could be a time effect (month may matter) and number of defaults the previous month may matter as well.  Explain the model you would try to implement and why it makes sense.  How would you evaluate this model and method?  What are the issues that can arise with your approach?  How would you explain this to your client?
+
+
+### Problem 3 (20 points)
+
+In this course we've discussed generalized linear models, time series analysis, and some subsets of addative/non-linear models.  In your own words and in less than a page describe how these three concepts are related to one another?  If there is no relationship between these methods explain why they are not connected?
+
+### Problem 4 (20 points)
+
+In this problem we want to study the labor participation of women in the 1980's.  The `Mroz` data in the `car`
+package depicts labor force participation.  Look at the help file for definition of the variables.  We are going
+to use `lfp` as our response in this case.  Create and decide on a model (you need to fit a few), that models this, discuss relevant variables and the impact they have.  You can use lwg in your model as it depicts what income would be expected if that individual worked. At least one of your models must use splines or non-linear terms.  
+
+
+```{r}
+library(car)
+data("Mroz")
+head(Mroz)
+```
+
+
+### Problem 5 (20 points)
+
+In the `mlogit` package there is a data set called `Fishing`.  This data depicts a customer choice model of different recreational fishing choices.  This is based on price, how many fish are caught, and income.   Create a model based on price, catch, and income, that tells me about a customers choice of mode.  Describe how you arrived at your model and any insights it provides.   
+
+```{r}
+library(mlogit)
+data("Fishing")
+head(Fishing)
+```
