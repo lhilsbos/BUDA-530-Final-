@@ -1,0 +1,30 @@
+---
+title: "530 Final"
+author: "Lucas Hilsbos"
+date: "2/27/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Problem 5 (20 points)
+
+In the `mlogit` package there is a data set called `Fishing`.  This data depicts a customer choice model of different recreational fishing choices.  This is based on price, how many fish are caught, and income.   Create a model based on price, catch, and income, that tells me about a customers choice of mode.  Describe how you arrived at your model and any insights it provides.   
+
+```{r}
+#install.packages("mlogit")
+library("mlogit")
+data("Fishing")
+head(Fishing)
+help("Fishing")
+```
+```{r}
+Mod_1<-multinom(mode~price.beach+price.pier+price.boat+price.charter+catch.beach+catch.pier+catch.boat+catch.charter+income, data = Fishing)
+summary(Mod_1)
+```
+
+#### Notes
+
+First we fit a multinomial logistic regresssion with the mode of fishing as the response and all of the other variables in the data frame as predictors. A summary of this first fit gives us some idea of how liklihoods of each mode relate to the up and down movement of the other variables, all relative to the baseline mode, which is beach.
